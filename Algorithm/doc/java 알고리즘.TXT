@@ -17,16 +17,17 @@
 5. 정규식은 사용하지 않는다.
 
 
-[html]									:html시작입력          [html]                
-[html, head]						:head시작입력          [html, head]          
-[html, head, title]				:title시작입력       [html, head, title]   
-[html, head]						:title종료입력         [html, head]          
-[html]									:head종료입력          [html]                
-[html, body]                                   [html, body]          
-[html, body, div]                              [html, body, div]     
-[html, body, div, img]		:img시작입력         [html, body, div, img]
-[html, body, div]					:img종료입력         [html, body, div]     
-[html, body]						:div종료입력           [html, body]          
-[html]									:body종료입력          [html]                
-[]											:html종료입력          []                    
+[html]							:html시작입력          [html]                
+[html, head]					:head시작입력          [html, head]          
+[html, head, title]				:title시작입력         [html, head, title]   
+[html, head]					:title종료입력         [html, head]          
+[html]							:head종료입력          [html]                
+[html, body]                    :body시작입력          [html, body]          
+[html, body, div]               :div시작입력           [html, body, div]     
+[html, body, div, img]			:img시작입력           [html, body, div, img]
+[html, body, div]				:img종료입력           [html, body, div]     
+[html, body]					:div종료입력           [html, body]          
+[html]							:body종료입력          [html]                
+[]								:html종료입력          []                    
 
+List<String[]>
