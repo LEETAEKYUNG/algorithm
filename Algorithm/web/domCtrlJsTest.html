@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
+	var presentStatus =0;
 	var n =     " "
 			    + "\n "   
 			    + "\n "   
@@ -46,7 +47,7 @@
 	}
 	
 	function getStatus(){
-		var st = parseInt(frmInput.statusCd.value);
+		var st = presentStatus;
 		switch(st){
 			case 0:
 				return n;
@@ -67,37 +68,32 @@
 		var status = 0;
 		switch(t){
 			case "insert":
-				status = parseInt(frmInput.statusCd.value) + parseInt("1");
+				status = presentStatus + 1;
 				break;
 			case "del":
-				status = parseInt(frmInput.statusCd.value) - parseInt("1");
+				status = presentStatus - 1;
 				break;
 			case "init":
-				status = parseInt("0");
+				status = 0;
 				break;
 		}
 		if(status > 3) status = 3;
 		if(status < 0) status = 0;
-		frmInput.statusCd.value = status;
+		presentStatus = status;
 	}
-	
 </script>
 </head>
 <body>
 	<div id="logoSample">
 		<pre>
-*****  ****   *********
-*     *           *    
-*      *          *    
-*****   **        *   
-*         *       *
-*          *      *    
-*****  ****       *
-</pre>
+
+
+
+
+
+
+    </pre>
 	</div>
-	<form id="frmInput">
-	<input id="statusCd" name="statusCd" type="hidden" value="3">
-	</form>
 	<button onclick="insert();">글자추가</button>
 	<button onclick="del();">글자삭제</button>
 	<button onclick="init();">전체삭제</button>

@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class ParsingHtmlTagAndPrintPath {
 
-static List<String[]> tagList = new ArrayList<String[]>();
+	static List<String[]> tagList = new ArrayList<String[]>();
+	static final String[] noCloseTags = {"img","br","input","meta"};
 	
 	public static void main(String[] args) {
-		//estsoft.ParsingHtmlTagAndPrintPath
 		Scanner sc = new Scanner(System.in);
 		String line = "";
 		while(sc.hasNextLine()){
@@ -64,15 +64,20 @@ static List<String[]> tagList = new ArrayList<String[]>();
 	}
 	
 	private static void saveTagInfo(String[] tagInfo){
-		//img, br, input태그는 별도의 종료태그가 없다. 따라서 종료태그를 같이 넣어준다.
-		if(tagInfo[0].toUpperCase().equals("IMG") || tagInfo[0].toUpperCase().equals("BR")
-				|| tagInfo[0].toUpperCase().equals("INPUT") || tagInfo[0].toUpperCase().equals("META")){
+		if(hasNotCloseTag(tagInfo[0])){
 			tagList.add(tagInfo);
 			String[] a = {tagInfo[0],"E"};
 			tagList.add(a);
 		}else{
 			tagList.add(tagInfo);
 		}
+	}
+	
+	private static boolean hasNotCloseTag(String tag){
+		for(String noClosetag: noCloseTags)
+			if(tag.toLowerCase().equals(noClosetag))
+				return true;
+		return false;
 	}
 	
 	private static int getIdxOfEndTag(String line){
