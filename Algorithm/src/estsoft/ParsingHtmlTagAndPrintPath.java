@@ -66,7 +66,7 @@ static List<String[]> tagList = new ArrayList<String[]>();
 	private static void saveTagInfo(String[] tagInfo){
 		//img, br, input태그는 별도의 종료태그가 없다. 따라서 종료태그를 같이 넣어준다.
 		if(tagInfo[0].toUpperCase().equals("IMG") || tagInfo[0].toUpperCase().equals("BR")
-				|| tagInfo[0].toUpperCase().equals("INPUT")){
+				|| tagInfo[0].toUpperCase().equals("INPUT") || tagInfo[0].toUpperCase().equals("META")){
 			tagList.add(tagInfo);
 			String[] a = {tagInfo[0],"E"};
 			tagList.add(a);

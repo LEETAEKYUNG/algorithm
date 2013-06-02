@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var n =     " "
+			    + "\n "   
+			    + "\n "   
+			    + "\n "  
+			    + "\n "
+			    + "\n "   
+			    + "\n ";
+	var e =     "***** "
+			    + "\n*      "   
+			    + "\n*      "   
+			    + "\n*****  "  
+			    + "\n*      "
+			    + "\n*      "   
+			    + "\n*****  ";
+	var es =     "*****  **** " 
+			    + "\n*     *      " 
+			    + "\n*      *     " 
+			    + "\n*****   **   " 
+			    + "\n*         *  " 
+			    + "\n*          * " 
+			    + "\n*****  ****  "; 
+	var est =   "*****  ****   *********"
+			    + "\n*     *           * "   
+			    + "\n*      *          * "   
+			    + "\n*****   **        * "  
+			    + "\n*         *       * "
+			    + "\n*          *      * "   
+			    + "\n*****  ****       * ";
+	function insert(){
+		setStatus("insert");
+		document.getElementById("logoSample").innerHTML = "<pre>"+getStatus()+"</pre>";
+	}
+	function del(){
+		setStatus("del");
+		document.getElementById("logoSample").innerHTML = "<pre>"+getStatus()+"</pre>";
+	}
+	function init(){
+		setStatus("init");
+		document.getElementById("logoSample").innerHTML = "<pre>"+getStatus()+"</pre>";
+	}
+	
+	function getStatus(){
+		var st = parseInt(frmInput.statusCd.value);
+		switch(st){
+			case 0:
+				return n;
+				break;
+			case 1:
+				return e;
+				break;
+			case 2:
+				return es;
+				break;
+			case 3:
+				return est;
+				break;
+		}
+	}
+	
+	function setStatus(t){
+		var status = 0;
+		switch(t){
+			case "insert":
+				status = parseInt(frmInput.statusCd.value) + parseInt("1");
+				break;
+			case "del":
+				status = parseInt(frmInput.statusCd.value) - parseInt("1");
+				break;
+			case "init":
+				status = parseInt("0");
+				break;
+		}
+		if(status > 3) status = 3;
+		if(status < 0) status = 0;
+		frmInput.statusCd.value = status;
+	}
+	
+</script>
+</head>
+<body>
+	<div id="logoSample">
+		<pre>
+*****  ****   *********
+*     *           *    
+*      *          *    
+*****   **        *   
+*         *       *
+*          *      *    
+*****  ****       *
+</pre>
+	</div>
+	<form id="frmInput">
+	<input id="statusCd" name="statusCd" type="hidden" value="3">
+	</form>
+	<button onclick="insert();">글자추가</button>
+	<button onclick="del();">글자삭제</button>
+	<button onclick="init();">전체삭제</button>
+</body>
+</html>
